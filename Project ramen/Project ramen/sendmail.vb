@@ -8,18 +8,18 @@ Public Class Feedback
             Dim mail As New MailMessage()
             SmtpServer.EnableSsl = True
             SmtpServer.Credentials = New  _
-            Net.NetworkCredential("kspunkyb@runedream.org", "asdfasdf")
+            Net.NetworkCredential("dummyemail", "dummypassword")
             SmtpServer.Port = 587
-            SmtpServer.Host = "smtp.live.com"
+            SmtpServer.Host = "smtp.gmail.com"
             mail = New MailMessage()
-            mail.From = New MailAddress("kspunkyb@runedream.org")
-            mail.To.Add("chucksudden@gmail.com")
+            mail.From = New MailAddress("dummyemail")
+            mail.To.Add("dummytosend")
             mail.Subject = Subject
             mail.Body = RichTextBox1.Text
             ProgressBar1.Value = "50"
             SmtpServer.Send(mail)
             ProgressBar1.Value = "100"
-            MsgBox("Thank you for your Input")
+            MsgBox("Email Sent")
         Catch ex As Exception
             MsgBox(ex.ToString)
             If ex.ToString = "" Then
